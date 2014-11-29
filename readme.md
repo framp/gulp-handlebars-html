@@ -9,7 +9,7 @@ This fork does not depend on handlebars anymore.
 Install with [npm](https://npmjs.org/package/gulp-handlebars-html)
 
 ```
-npm install --save-dev gulp-handlebars-html
+npm install --save-dev handlebars gulp-handlebars-html
 ```
 
 ## Example
@@ -34,7 +34,7 @@ npm install --save-dev gulp-handlebars-html
 ```js
 var gulp = require('gulp');
 var handlebars = require('handlebars');
-var gulpHandlebars = require('gulp-compile-handlebars');
+var gulpHandlebars = require('gulp-compile-handlebars')(handlebars); //default to require('handlebars') if not provided
 var rename = require('gulp-rename');
 
 handlebars.registerPartial('footer', '<footer>the end</footer>');
@@ -51,7 +51,7 @@ gulp.task('default', function () {
 	}
 
 	return gulp.src('src/hello.handlebars')
-		.pipe(handlebars(templateData, options))
+		.pipe(gulpHandlebars(templateData, options))
 		.pipe(rename('hello.html'))
 		.pipe(gulp.dest('dist'));
 });

@@ -2,8 +2,7 @@
 var assert = require('assert');
 var gutil = require('gulp-util');
 var handlebars = require('handlebars');
-var gulpHandlebars = require('./index');
-var template = gulpHandlebars.bind(null, handlebars);
+var template = require('./index')();
 
 handlebars.registerPartial('header', '<header/>');
 handlebars.registerHelper('toLower', function(str) { return str.toLowerCase(); });
