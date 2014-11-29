@@ -1,13 +1,13 @@
 {
-  "name": "gulp-compile-handlebars",
-  "version": "0.4.3",
-  "description": "Compile Handlebars templates to file - gulp plugin",
+  "name": "gulp-handlebars-html",
+  "version": "0.0.1",
+  "description": "Gulp plugin to compile handlebars templates to html",
   "license": "MIT",
-  "repository": "kaanon/gulp-compile-handlebars",
+  "repository": "framp/gulp-handlebars-html",
   "author": {
-    "name": "Kaanon MacFarlane",
-    "email": "kaanonm@gmail.com",
-    "url": "http://kaanon.com"
+    "name": "Federico Rampazzo",
+    "email": "frampone@gmail.com",
+    "url": "http://framp.me"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -29,10 +29,10 @@
   ],
   "dependencies": {
     "gulp-util": "~2.2.10",
-    "through2": "~0.4.0",
-    "handlebars": "~2.0"
+    "through2": "~0.4.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "handlebars": "~2.0"
   }
 }

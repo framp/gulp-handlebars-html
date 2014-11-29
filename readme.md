@@ -1,17 +1,16 @@
-# gulp-compile-handlebars
-Forked from [gulp-template](https://github.com/sindresorhus/gulp-template)
-Inspired by [grunt-compile-handlebars](https://github.com/patrickkettner/grunt-compile-handlebars)
+# gulp-html-handlebars
+Forked from [gulp-template](https://github.com/kaanonm/gulp-compile-handlebars).
+This fork does not depend on handlebars anymore.
 
 > Compile [Handlebars templates](http://www.handlebarsjs.com/)
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-compile-handlebars)
+Install with [npm](https://npmjs.org/package/gulp-handlebars-html)
 
 ```
-npm install --save-dev gulp-compile-handlebars
+npm install --save-dev gulp-handlebars-html
 ```
-
 
 ## Example
 
@@ -34,24 +33,21 @@ npm install --save-dev gulp-compile-handlebars
 
 ```js
 var gulp = require('gulp');
-var handlebars = require('gulp-compile-handlebars');
+var handlebars = require('handlebars');
+var gulpHandlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
+
+handlebars.registerPartial('footer', '<footer>the end</footer>');
+handlebars.registerHelper('capitals', function(str){
+  return str.toUpperCase();
+});
 
 gulp.task('default', function () {
 	var templateData = {
 		firstName: 'Kaanon'
 	},
 	options = {
-		ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
-		partials : {
-			footer : '<footer>the end</footer>'
-		},
-		batch : ['./src/partials'],
-		helpers : {
-			capitals : function(str){
-				return str.toUpperCase();
-			}
-		}
+		partialsDirectory : ['./src/partials']
 	}
 
 	return gulp.src('src/hello.handlebars')
@@ -71,11 +67,8 @@ gulp.task('default', function () {
 ```
 
 ## Options
-
-- __ignorePartials__ : ignores any unknown partials. Useful if you only want to handle part of the file
-- __partials__ : Javascript object that will fill in partials using strings
-- __batch__ : Javascript array of filepaths to use as partials
-- __helpers__: javascript functions to stand in for helpers used in the handlebars files
+- __allowedExtensions__ (['hb', 'hbs', 'handlebars', 'html']) : Array of allowed extensions for templates
+- __partialsDirectory__ ([]) : Array of filepaths to use as partials
 
 ## Works with gulp-data
 
@@ -86,4 +79,4 @@ See [gulp-data](https://www.npmjs.org/package/gulp-data) for usage examples.
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Kaanon MacFarlane](http://kaanon.com)
+MIT
