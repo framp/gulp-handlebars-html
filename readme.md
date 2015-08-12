@@ -34,7 +34,7 @@ npm install --save-dev handlebars gulp-handlebars-html
 ```js
 var gulp = require('gulp');
 var handlebars = require('handlebars');
-var gulpHandlebars = require('gulp-compile-handlebars')(handlebars); //default to require('handlebars') if not provided
+var gulpHandlebars = require('gulp-handlebars-html')(handlebars); //default to require('handlebars') if not provided
 var rename = require('gulp-rename');
 
 handlebars.registerPartial('footer', '<footer>the end</footer>');
